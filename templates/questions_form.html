@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Madlibs</h1>
-  <form method="POST">
+  <form method="POST" action="/story">
 
     {{ form.hidden_tag() }}
     {% for field in form if field.widget.input_type != 'hidden' %}
@@ -22,7 +22,7 @@
     </p>
     {% endfor %}
 
-    <button type="Submit"></button>
+    <button type="Submit">Submit</button>
 
   </form>
 
