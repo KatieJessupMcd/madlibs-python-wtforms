@@ -19,10 +19,15 @@ def render_form():
         noun = form.noun.data
         verb = form.verb.data
         adjective = form.adjective.data
-        plural_noun = form. plural_noun.data
+        plural_noun = form.plural_noun.data
         return f"These are the things in the form: {place}, {noun}, {verb}, {adjective}, {plural_noun}"
     else:
         return render_template("questions_form.html", form=form)
 
-# @app.route('/story')
-# def render_story():
+@app.route('/story', methods=['GET', 'POST'])
+def render_story():
+    """renders the story with the given input"""
+
+    print("these are the request.form", request.form)
+    text = story.generate(request.form)
+    return render_template("story.html", text=text)
